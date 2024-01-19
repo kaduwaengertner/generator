@@ -11,6 +11,8 @@
   <form id="bannerForm">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
+    <label for="backgroundColor">Background Color:</label>
+    <input type="color" id="backgroundColor" name="backgroundColor" value="#CCCCCC" onchange="updatePreview()">
     <button type="button" onclick="generateBanner()">Generate Banner</button>
   </form>
   <div id="generatedBannerContainer"></div>

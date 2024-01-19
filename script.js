@@ -1,3 +1,5 @@
+let selectedColor = '#CCCCCC'; // Initial color
+
 async function generateBanner() {
   const username = document.getElementById('username').value;
   const bannerPreview = document.getElementById('bannerPreview');
@@ -17,15 +19,15 @@ async function generateBanner() {
     const result = await response.json();
     const { color } = result;
 
-    // Update banner preview with the new color
-    bannerPreview.style.backgroundColor = color;
+    // Update banner preview with the selected color
+    bannerPreview.style.backgroundColor = selectedColor;
 
     // Create a canvas and draw the banner
     const canvas = document.createElement('canvas');
     canvas.width = 300; // Set your desired width
     canvas.height = 150; // Set your desired height
     const context = canvas.getContext('2d');
-    context.fillStyle = color;
+    context.fillStyle = selectedColor;
     context.fillRect(0, 0, canvas.width, canvas.height);
 
     // Draw the username text
@@ -49,11 +51,10 @@ async function generateBanner() {
   }
 }
 
-function downloadImage() {
-  const canvas = document.querySelector('canvas');
-  const image = canvas.toDataURL('image/png').replace('image/png', 'image/octet-stream');
-  const link = document.createElement('a');
-  link.href = image;
-  link.download = 'generated_banner.png';
-  link.click();
+function updatePreview() {
+  // Update selectedColor with the color picker value
+  selectedColor = document.getElementById('backgroundColor').value;
+
+  // Update banner preview with the selected color
+  document.getElementById('bannerPreview').style.backgroundColor = selectedColor;
 }
