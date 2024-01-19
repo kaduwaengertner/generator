@@ -1,12 +1,33 @@
+* {
+  user-select: none;
+}
+
 body {
     display: flex;
+    padding: 0px 100px;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
+    align-items: center;
+    background: #0A0C0D;
   }
   
+header {
+  display: flex;
+padding: 50px 0px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 50px;
+}
+
+.logo {
+  
+}
+
+  #bannerPreview {
+    pointer-events: none;
+  }
+
   .banner-preview {
     width: 300px;
     height: 150px;

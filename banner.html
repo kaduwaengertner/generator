@@ -1,0 +1,8 @@
+<!-- Content for banner -->
+<label for="username">Username:</label>
+<input type="text" id="username" name="username" required>
+<label for="backgroundColor">Background Color:</label>
+<input type="color" id="backgroundColor" name="backgroundColor" value="#CCCCCC" onchange="updatePreview()">
+<label for="imageInput">Upload Image:</label>
+<input type="file" id="imageInput" accept="image/*" onchange="handleImageUpload()">
+<button type="button" onclick="generateBanner()">Generate Banner</button>

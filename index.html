@@ -7,10 +7,31 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header>
+    <div class="logo">
+      <svg width="30" height="50" viewBox="0 0 30 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M29.1716 20.1504L7.89026 50L13.0692 20.1504H29.1716Z" fill="#E4E5EA"/>
+        <path d="M29.1716 20.1504L16.9299 29.8496H0.84967L13.0268 20.1504H29.1716Z" fill="#F0F2F9"/>
+        <path d="M0.82843 29.8496L22.1089 0L16.9299 29.8496H0.82843Z" fill="#FBFBFB"/>
+      </svg>
+    </div>
+    <nav>
+      <div class="title">WHAT WE’RE CREATING TODAY?</div>
+      <div class="options">
+        <ul>
+          <li>Banner</li>
+          <li>Thumbnail</li>
+          <li>Announcement</li>
+        </ul>
+      </div>
+    </nav>
+  </header>
   <div class="banner-preview" id="bannerPreview"></div>
   <form id="bannerForm">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username" required>
+    <!-- Add this input field inside your form -->
+    <input type="file" id="imageInput" accept="image/*" onchange="handleImageUpload()">
     <label for="backgroundColor">Background Color:</label>
     <input type="color" id="backgroundColor" name="backgroundColor" value="#CCCCCC" onchange="updatePreview()">
     <button type="button" onclick="generateBanner()">Generate Banner</button>
