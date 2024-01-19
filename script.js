@@ -19,8 +19,9 @@ async function generateBanner() {
     const result = await response.json();
     const { color } = result;
 
-    // Update banner preview with the selected color
+    // Update banner preview with the selected color and live username
     bannerPreview.style.backgroundColor = selectedColor;
+    bannerPreview.innerHTML = username;
 
     // Create a canvas and draw the banner
     const canvas = document.createElement('canvas');
@@ -58,7 +59,7 @@ function updatePreview() {
   // Update selectedColor with the color picker value
   selectedColor = document.getElementById('backgroundColor').value;
 
-  // Update banner preview with the selected color
+  // Update banner preview with the selected color and live username
   document.getElementById('bannerPreview').style.backgroundColor = selectedColor;
   document.getElementById('bannerPreview').innerHTML = username;
 }
