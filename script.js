@@ -1,17 +1,16 @@
 let selectedColor = '#CCCCCC'; // Initial color
 let username = ''; // Initial username
+let bannerGenerated = false; // Flag to track if the banner has been generated
 
-async function generateBanner() {
+function generateBanner() {
   // Get the updated username
   username = document.getElementById('username').value;
 
-  // Update banner preview with the selected color and live username
-  const bannerPreview = document.getElementById('bannerPreview');
-  bannerPreview.style.backgroundColor = selectedColor;
-  bannerPreview.innerHTML = username;
+  // Call the banner generation function
+  updateBanner();
 
-  // Create or update the canvas in the generatedBannerContainer
-  updateCanvas();
+  // Set the flag to indicate that the banner has been generated
+  bannerGenerated = true;
 
   // Show the download button
   document.getElementById('downloadButton').style.display = 'block';
@@ -20,8 +19,24 @@ async function generateBanner() {
   console.log(`Username: ${username}`);
 }
 
+function updateBanner() {
+  const bannerPreview = document.getElementById('bannerPreview');
+
+  // Update banner preview with the selected color and live username
+  bannerPreview.style.backgroundColor = selectedColor;
+  bannerPreview.innerHTML = username;
+
+  // Create or update the canvas in the generatedBannerContainer
+  updateCanvas();
+}
+
 function updateCanvas() {
   const generatedBannerContainer = document.getElementById('generatedBannerContainer');
+
+  // Check if banner has been generated
+  if (!bannerGenerated) {
+    return;
+  }
 
   // Check if canvas already exists
   let canvas = generatedBannerContainer.querySelector('canvas');
@@ -53,10 +68,8 @@ function updatePreview() {
   // Update selectedColor with the color picker value
   selectedColor = document.getElementById('backgroundColor').value;
 
-  // Update banner preview with the selected color and live username
-  document.getElementById('bannerPreview').style.backgroundColor = selectedColor;
-  document.getElementById('bannerPreview').innerHTML = username;
-
-  // Update the canvas in the generatedBannerContainer
-  updateCanvas();
+  // Update banner on color change only if the banner has been generated
+  if (bannerGenerated) {
+    updateBanner();
+  }
 }
