@@ -60,4 +60,5 @@ function updatePreview() {
 
   // Update banner preview with the selected color
   document.getElementById('bannerPreview').style.backgroundColor = selectedColor;
+  document.getElementById('bannerPreview').innerHTML = username;
 }
