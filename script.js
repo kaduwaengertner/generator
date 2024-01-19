@@ -52,6 +52,9 @@ async function generateBanner() {
 }
 
 function updatePreview() {
+  // Get the current username input value
+  const username = document.getElementById('username').value;
+
   // Update selectedColor with the color picker value
   selectedColor = document.getElementById('backgroundColor').value;
 
